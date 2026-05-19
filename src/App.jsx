@@ -7,17 +7,17 @@ const memories = [
   {
     title: "Our first moment",
     text: "Write about the moment everything started.",
-    image: "/images/photo-1.jpg",
+    image: `${import.meta.env.BASE_URL}/images/photo-1.jpg`,
   },
   {
     title: "A day I’ll never forget",
     text: "Write about a special day, trip, date, or random memory.",
-    image: "/images/photo-2.jpg",
+    image: `${import.meta.env.BASE_URL}/images/photo-2.jpg`,
   },
   {
     title: "The little things",
     text: "Write about small things she does that mean a lot to you.",
-    image: "/images/photo-3.jpg",
+    image: `${import.meta.env.BASE_URL}/images/photo-3.jpg`,
   },
 ]
 
@@ -170,7 +170,7 @@ function App() {
           </motion.div>
 
           <motion.img
-            src="/images/photo-4.jpg"
+            src={`${import.meta.env.BASE_URL}images/photo-4.jpg`}
             alt="A special memory"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
