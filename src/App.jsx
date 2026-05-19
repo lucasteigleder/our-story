@@ -172,8 +172,8 @@ function App() {
     { label: "Seit es uns gibt", href: "#counter"},
     { label: "Erinnerungen", href: "#memories" },
     { label: "Videos", href: "#videos" },
-    { label: "Zukunft", href: "#future" },
     { label: "Timeline", href: "#timeline" },
+    { label: "Zukunft", href: "#future" },
     { label: "Abschlussbrief", href: "#letter" },
   ]
 
@@ -328,7 +328,7 @@ function App() {
         </motion.div>
       </section>
 
-      <section id="story" className="px-6 py-28 max-w-6xl mx-auto">
+      <section id="story" className="min-h-screenpx-6 py-28 max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -371,7 +371,7 @@ function App() {
         </div>
       </section>
 
-<section id="counter" className="px-6 py-24 max-w-6xl mx-auto text-center relative z-10">
+<section id="counter" className="min-h-screenpx-6 py-24 max-w-6xl mx-auto text-center relative z-10">
   <motion.div
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -414,7 +414,7 @@ function App() {
   </motion.div>
 </section>
 
-      <section id="memories" className="px-6 py-28 max-w-6xl mx-auto">
+      <section id="memories" className="min-h-screen px-6 py-28 max-w-6xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -458,7 +458,7 @@ function App() {
         </div>
       </section>
 
-      <section id="videos" className="px-6 py-28 max-w-6xl mx-auto">
+      <section id="videos" className="min-h-screen px-6 py-28 max-w-6xl mx-auto">
   <motion.p
     initial={{ opacity: 0, y: 18 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -517,39 +517,6 @@ function App() {
   </div>
 </section>
 
-      <section id="future" className="px-6 py-28 max-w-4xl mx-auto text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5"
-        >
-          Unsere Zukunft
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-8"
-        >
-          Und alles, was sonst noch so auf uns wartet
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="text-white/60 text-lg leading-relaxed"
-        >
-          Ich hoffe wir haben noch so viele weitere Kapitel vor uns, so viele weitere Erinnerungen, 
-          die wir schaffen können, und so viel mehr Liebe, die wir teilen können. 
-          Ich freue mich auf alles, was noch kommt — mit dir an meiner Seite.
-        </motion.p>
-      </section>
-
 <section id="timeline" className="px-6 py-28 max-w-4xl mx-auto">
   <p className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5">
     Timeline
@@ -579,6 +546,60 @@ function App() {
   </div>
 </section>
 
+ <section id="future" className="min-h-screen px-6 py-28 max-w-4xl mx-auto text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5"
+        >
+          Unsere Zukunft
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-8"
+        >
+          Und alles, was sonst noch so auf uns wartet
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-white/60 text-lg leading-relaxed"
+        >
+          Ich hoffe, dass noch so viele weitere Kapitel vor uns liegen.
+Noch so viele kleine Momente, über die wir irgendwann lachen werden.
+Noch so viele Erinnerungen, die heute vielleicht ganz gewöhnlich wirken,
+aber irgendwann zu unseren Lieblingsmomenten werden.
+
+Ich freue mich auf spontane Nächte, auf lange Gespräche,
+auf Reisen, auf neue Orte und auf all die kleinen Dinge dazwischen.
+Darauf, einfach weiter mit dir durchs Leben zu gehen.
+
+Und ehrlich?
+Ich freue mich jetzt schon auf Tunesien mit dir.
+Auf Sonne, Meer, warme Nächte, gemeinsames Essen,
+und einfach darauf, neue Erinnerungen mit dir zu schaffen —
+an einem Ort, den wir irgendwann zusammen mit „uns“ verbinden werden.
+
+Das Schönste an der Zukunft bist für mich nicht irgendwelche Pläne.
+Sondern die Tatsache, dass du darin vorkommst.
+
+Egal wo wir später sind,
+egal was noch kommt,
+ich hoffe einfach,
+dass wir weiterhin gemeinsam durchs Leben gehen —
+mit all den schönen, chaotischen, lustigen und echten Momenten,
+die noch auf uns warten. 
+
+        </motion.p>
+      </section>
       <section id="letter" className="min-h-screen flex items-center justify-center px-6 py-28">
   <div className="w-full max-w-3xl text-center">
     <motion.p
