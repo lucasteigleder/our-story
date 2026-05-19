@@ -125,6 +125,9 @@ const timeline = [
 
 const relationshipStartDate = new Date("2024-07-20")
 
+const secretWord = "jana"
+const crosswordUrl = "https://crosswordlabs.com/view/jahrestag-quiz"
+
 function getTimeTogether() {
   const now = new Date()
   const difference = now - relationshipStartDate
@@ -158,6 +161,10 @@ function App() {
 
   const [loading, setLoading] = useState(true)
 
+  const [unlocked, setUnlocked] = useState(false)
+  const [answer, setAnswer] = useState("")
+  const [answerError, setAnswerError] = useState("")
+
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeTogether(getTimeTogether())
@@ -177,6 +184,7 @@ function App() {
     { label: "Abschlussbrief", href: "#letter" },
   ]
 
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false)
@@ -193,6 +201,83 @@ function App() {
       }}
       className="min-h-screen bg-[#050505] text-white overflow-hidden"
     >
+      {!unlocked && (
+        <div className="fixed inset-0 z-[9999] overflow-y-auto bg-[#050505] px-6 py-10">
+          <div className="mx-auto flex min-h-full w-full max-w-3xl items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+              className="w-full rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 text-center shadow-2xl backdrop-blur-xl sm:p-10"
+            >
+              <p className="mb-6 text-sm uppercase tracking-[0.4em] text-white/40">
+                Erst das Rätsel
+              </p>
+
+              <h1 className="mb-6 text-4xl font-black tracking-tight sm:text-5xl md:text-6xl">
+                Bevor es losgeht...
+              </h1>
+
+              <p className="mx-auto mb-10 max-w-2xl leading-relaxed text-white/60">
+                Löse zuerst das Kreuzworträtsel. Wenn du das Lösungswort hast,
+                gib es hier ein und unsere Geschichte wird freigeschaltet.
+              </p>
+
+              <a
+                href={crosswordUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mb-8 inline-block rounded-full border border-white/20 px-8 py-4 text-sm uppercase tracking-widest transition hover:bg-white hover:text-black"
+              >
+                Rätsel öffnen
+              </a>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault()
+
+                  if (answer.trim().toLowerCase() === secretWord) {
+                    setAnswerError("")
+                    setUnlocked(true)
+                  } else {
+                    setAnswerError("Nicht ganz — probier es nochmal ❤️")
+                  }
+                }}
+                className="mx-auto flex max-w-xl flex-col gap-4 sm:flex-row"
+              >
+                <input
+                  type="text"
+                  placeholder="Lösungswort eingeben..."
+                  value={answer}
+                  onChange={(e) => {
+                    setAnswer(e.target.value)
+                    setAnswerError("")
+                  }}
+                  className="min-w-0 flex-1 rounded-full border border-white/10 bg-white/10 px-6 py-4 text-center text-white outline-none placeholder:text-white/35 focus:border-white/30"
+                />
+
+                <button
+                  type="submit"
+                  className="rounded-full border border-white/20 px-8 py-4 text-sm uppercase tracking-widest transition hover:bg-white hover:text-black"
+                >
+                  Freischalten
+                </button>
+              </form>
+
+              {answerError && (
+                <p className="mt-5 text-sm text-pink-200/80">
+                  {answerError}
+                </p>
+              )}
+
+              <p className="mx-auto mt-8 max-w-lg text-sm leading-relaxed text-white/35">
+                Tipp: Das Rätsel öffnet sich in einem neuen Tab. Komm danach einfach
+                hierher zurück und gib das Lösungswort ein.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      )}
       <AnimatePresence>
   {loading && (
     <motion.div
@@ -334,7 +419,7 @@ function App() {
         </motion.div>
       </section>
 
-      <section id="story" className="min-h-screenpx-6 py-28 max-w-6xl mx-auto">
+      <section id="story" className="min-h-screen px-6 py-28 max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -377,7 +462,7 @@ function App() {
         </div>
       </section>
 
-<section id="counter" className="min-h-screenpx-6 py-24 max-w-6xl mx-auto text-center relative z-10">
+<section id="counter" className="min-h-screen px-6 py-24 max-w-6xl mx-auto text-center relative z-10">
   <motion.div
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -389,7 +474,7 @@ function App() {
       Seit es UNS gibt
     </p>
 
-    <div className="grid grid-cols-2 md:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
       {[
         { label: "Jahre", value: timeTogether.years },
         { label: "Monate", value: timeTogether.months },
