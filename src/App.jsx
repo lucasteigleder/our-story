@@ -1,23 +1,22 @@
 import { useState } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu, X, Music2 } from "lucide-react"
-import { label, title } from "framer-motion/client"
 
 const memories = [
   {
     title: "Our first moment",
     text: "Write about the moment everything started.",
-    image: `${import.meta.env.BASE_URL}/images/photo-1.jpg`,
+    image: `${import.meta.env.BASE_URL}images/photo-1.jpg`,
   },
   {
     title: "A day I’ll never forget",
     text: "Write about a special day, trip, date, or random memory.",
-    image: `${import.meta.env.BASE_URL}/images/photo-2.jpg`,
+    image: `${import.meta.env.BASE_URL}images/photo-2.jpg`,
   },
   {
     title: "The little things",
     text: "Write about small things she does that mean a lot to you.",
-    image: `${import.meta.env.BASE_URL}/images/photo-3.jpg`,
+    image: `${import.meta.env.BASE_URL}images/photo-3.jpg`,
   },
 ]
 
@@ -69,6 +68,8 @@ function App() {
   const heroTextY = useTransform(scrollY, [0, 700], [0, -80])
   const imageY = useTransform(scrollY, [300, 1200], [80, -80])
 
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
   const navItems = [
     { label: "Start", href: "#top" },
     { label: "How it started", href: "#story" },
@@ -77,10 +78,29 @@ function App() {
     { label: "Videos", href: "#videos" },
     { label: "Future", href: "#future" },
     { label: "Timeline", href: "#timeline" },
+    { label: "Our Song", href: "#song" },
     { label: "Final Letter", href: "#letter" },
   ]
   return (
-    <main className="min-h-screen bg-[#050505] text-white overflow-hidden">
+    <main
+      onMouseMove={(e) => {
+        setMousePosition({ x: e.clientX, y: e.clientY })
+      }}
+      className="min-h-screen bg-[#050505] text-white overflow-hidden"
+    >
+      <motion.div
+        className="pointer-events-none fixed z-30 hidden h-80 w-80 rounded-full bg-pink-400/10 blur-3xl md:block"
+        animate={{
+          x: mousePosition.x - 160,
+          y: mousePosition.y - 160,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 80,
+          damping: 30,
+          mass: 0.4,
+        }}
+      />
       <nav className="fixed top-6 right-6 z-50">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
