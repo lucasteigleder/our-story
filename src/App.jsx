@@ -168,13 +168,13 @@ function App() {
 
   const navItems = [
     { label: "Start", href: "#top" },
-    { label: "How it started", href: "#story" },
-    { label: "Counter", href: "#counter"},
-    { label: "Memories", href: "#memories" },
+    { label: "Wie alles begann", href: "#story" },
+    { label: "Seit es uns gibt", href: "#counter"},
+    { label: "Erinnerungen", href: "#memories" },
     { label: "Videos", href: "#videos" },
-    { label: "Future", href: "#future" },
+    { label: "Zukunft", href: "#future" },
     { label: "Timeline", href: "#timeline" },
-    { label: "Final Letter", href: "#letter" },
+    { label: "Abschlussbrief", href: "#letter" },
   ]
 
   useEffect(() => {
@@ -688,7 +688,7 @@ function App() {
       transition={{ delay: 1.2, duration: 1.6 }}
       className="text-white/50 text-xl md:text-2xl"
     >
-      Jedes Mal aufs Neue.
+      Jedes Mal aufs Neue. ❤️
     </motion.p>
   </motion.div>
 
