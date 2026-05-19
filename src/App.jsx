@@ -4,29 +4,29 @@ import { Menu, X, Music2 } from "lucide-react"
 
 const memories = [
   {
-    title: "Our first moment",
-    text: "Write about the moment everything started.",
+    title: "Unser erster gemeinsamer Urlaub",
+    text: "Kroatien 2025 was unser erster gemeinsamer Urlaub und es war einfach unvergesslich.",
     image: `${import.meta.env.BASE_URL}images/photo-1.jpg`,
   },
   {
-    title: "A day I’ll never forget",
-    text: "Write about a special day, trip, date, or random memory.",
+    title: "Wir, wenn wir styled up sind",
+    text: "Ich liebe es, wenn wir beide einfach so unfassbar gut aussehen und so krass matchen.",
     image: `${import.meta.env.BASE_URL}images/photo-2.jpg`,
   },
   {
-    title: "The little things",
-    text: "Write about small things she does that mean a lot to you.",
+    title: "Die kleinen Dinge im Leben",
+    text: "Ich liebe es einfach Zeit mit dir zu verbringen, selbst wenn es einem auch nicht so gut geht.",
     image: `${import.meta.env.BASE_URL}images/photo-3.jpg`,
   },
 ]
 
 const videos = [
   {
-    title: "A little moment",
+    title: "Booooooowling with you",
     src: `${import.meta.env.BASE_URL}videos/memory-1.mp4`,
   },
   {
-    title: "Another memory",
+    title: "Benimm dich!!",
     src: `${import.meta.env.BASE_URL}videos/memory-2.mp4`,
   },
 ]
@@ -42,19 +42,84 @@ const particles = Array.from({ length: 80 }, (_, index) => ({
 
 const timeline = [
   {
-    date: "The beginning",
-    title: "When we first met",
-    text: "Write about how everything started.",
+    date: "21.10.2023",
+    title: "Unser erstes Treffen",
+    text: "Und auf einmal standen wir nebeneinander. Du hast mich angesprochen und so hat alles seinen Lauf genommen.",
   },
   {
-    date: "Our first date",
-    title: "The first real memory",
-    text: "Write about your first date or first special moment.",
+    date: "15.02.2024",
+    title: "Unser erstes Date",
+    text: "Zusammen waren wir in Heidelberg und haben bei Sahara gegessen, bei dem Laden zu dem wir nach der Unteren immer gehen 😂.",
   },
   {
-    date: "Now",
-    title: "What you mean to me",
-    text: "Write about what she means to you today.",
+    date: "16.06.2024",
+    title: "Unser erster Kuss",
+    text: "Die meisten ersten Sachen sind irgendwie betrunken bei uns passiert fällt mir gerade auf.",
+  },
+  {
+    date: "07.07.2024",
+    title: "Unser erstes Mal in den Weinbergen",
+    text: "Wir hatten unfassbar viel Spaß dort oben und hatten ganz nebenbei auch unseren zweiten Kuss.",
+  },
+  {
+    date: "20.07.2024",
+    title: "Unser Datum ❤️",
+    text: "Dann war es endlich soweit und wir sind offiziell zusammen gekommen.",
+  },
+  {
+    date: "01.01.2025",
+    title: "Unser erstes gemeinsames Silvester",
+    text: "Und so konnte ich das erste Mal in ein neues Jahr mit der Liebe meines Lebens starten.",
+  },
+  {
+    date: "13.07.-14.07.2025",
+    title: "Unser Europapark-Trip",
+    text: "Ich sag nur: Herdplatte, ups.",
+  },
+  {
+    date: "20.07.2025",
+    title: "Unser erster Jahrestag",
+    text: "Gestört, wie krass schnell dieses erste Jahr mit dir verging.",
+  },
+  {
+    date: "09.08.-17.08.2025",
+    title: "Unser erster gemeinsamer Urlaub",
+    text: "Kroatien, unser erster Urlaub in dem wir zusammen waren, war so unfassbar schön.",
+  },
+  {
+    date: "27.10.-01.11.2025",
+    title: "Unsere erste Reise alleine",
+    text: "Und dann war es schon Zeit für unsere erste Reise alleine, nach Göteborg.",
+  },
+  {
+    date: "01.01.2026",
+    title: "Unsere zweites Silvester zusammen",
+    text: "Unfassbar schnell ist das erste ganze Jahr dann schon verflogen und es war zeit für unsere 2. gemeinsames Silvester.",
+  },
+  {
+    date: "12.02.2026",
+    title: "Unser coolstes Fasching",
+    text: "Hirschhorn war etwas besonderes, weil wir eigentlich gar keine Lust hatten, aber dann wurde es zu dem besten Fasching ever.",
+  },
+  {
+    date: "05.04.2026",
+    title: "Titanic Frankfurt",
+    text: "Ich musste dir echt mal ein bisschen Kult näher bringen und letztendlich habe ich es ja sogar geschafft, dass du dir zum ersten Mal den Film anschaust hehe.",
+  },
+  {
+    date: "10.04.2026",
+    title: "Soccerbeat",
+    text: "Eins deiner vielen wunderschönen Geburtstagsgeschenke an mich und wir hatten unfassbar viel Spaß.",
+  },
+  {
+    date: "02.06.-05.06.2026",
+    title: "Prag 2026",
+    text: "Unsere zweite gemeinsam größere Reise war genau so toll wie die erste. Prag, eine wunderschöne Stadt, die wir zusammen erkundet haben.",
+  },
+  {
+    date: "20.07.2026",
+    title: "Unser Jahrestag",
+    text: "Und heute ist es nun soweit, wir sind einfach schon 2 Jahre zusammen, ich bin so glücklich mit dir mein Schatz ❤️.",
   },
 ]
 
@@ -246,19 +311,19 @@ function App() {
           </p>
 
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight mb-8">
-            Our Story
+            Unsere Geschichte
           </h1>
 
           <p className="text-white/60 text-lg md:text-xl leading-relaxed">
-            I made this little place for us — for the memories we have,
-            the moments I never want to forget, and everything still waiting for us.
+            Ich habe diesen kleinen Ort für uns gemacht — für die Erinnerungen, die wir haben,
+            die Momente, die ich nie vergessen möchte, und alles, was noch auf uns wartet.
           </p>
 
           <a
             href="#story"
             className="inline-block mt-12 rounded-full border border-white/20 px-8 py-4 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition"
           >
-            Begin
+            Los geht’s
           </a>
         </motion.div>
       </section>
@@ -271,7 +336,7 @@ function App() {
           transition={{ duration: 1 }}
           className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16"
         >
-          How it started
+          Wie alles begann
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -282,14 +347,14 @@ function App() {
             transition={{ duration: 1 }}
             className="rounded-3xl bg-white/[0.06] backdrop-blur-xl border border-white/10 p-8"
           >
-            <p className="text-white/50 mb-4">Chapter One</p>
+            <p className="text-white/50 mb-4">Kapitel 1</p>
             <h3 className="text-3xl font-semibold mb-4">
-              The beginning of us
+              Der Anfang unserer Reise
             </h3>
             <p className="text-white/60 leading-relaxed">
-              This is where you can write about how everything started:
-              the first message, the first date, the first moment you realized
-              she was special.
+              Alles begann im Oktober 2023. Du hast mich auf der Kerwe angesprochen und ehrlich gesagt
+              hätte ich nie gedacht, dass wir mehr als 2 Jahre später hier stehen würden. 
+              Aber hier sind wir — und ich könnte nicht glücklicher sein.
             </p>
           </motion.div>
 
@@ -315,16 +380,16 @@ function App() {
     className="rounded-[1.5rem] md:rounded-[2rem] border border-white/10 bg-white/[0.05] backdrop-blur-xl p-8 md:p-14"
   >
     <p className="text-white/40 uppercase tracking-[0.4em] text-sm mb-6">
-      Since us
+      Seit es UNS gibt
     </p>
 
     <div className="grid grid-cols-2 md:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
       {[
-        { label: "years", value: timeTogether.years },
-        { label: "months", value: timeTogether.months },
-        { label: "days", value: timeTogether.days },
-        { label: "hours", value: timeTogether.hours },
-        { label: "minutes", value: timeTogether.minutes },
+        { label: "Jahre", value: timeTogether.years },
+        { label: "Monate", value: timeTogether.months },
+        { label: "Tage", value: timeTogether.days },
+        { label: "Stunden", value: timeTogether.hours },
+        { label: "Minuten", value: timeTogether.minutes },
       ].map((item) => (
         <motion.div
           key={item.label}
@@ -344,7 +409,7 @@ function App() {
     </div>
 
     <p className="text-white/60 text-lg">
-      {timeTogether.totalDays} days together — and still counting.
+      {timeTogether.totalDays} Tage zusammen — und wir zählen weiter.
     </p>
   </motion.div>
 </section>
@@ -356,7 +421,7 @@ function App() {
           viewport={{ once: true }}
           className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5"
         >
-          Memories
+          Erinnerungen
         </motion.p>
 
         <motion.h2
@@ -366,7 +431,7 @@ function App() {
           transition={{ duration: 1 }}
           className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16"
         >
-          Moments I never want to forget
+          Momente, die ich nie vergessen möchte
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -400,7 +465,7 @@ function App() {
     viewport={{ once: true }}
     className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5"
   >
-    Little moments
+    Kleine Momente
   </motion.p>
 
   <motion.h2
@@ -410,7 +475,7 @@ function App() {
     transition={{ duration: 1 }}
     className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16"
   >
-    The memories that move
+    Momente, die sich bewegen 
   </motion.h2>
 
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -459,7 +524,7 @@ function App() {
           viewport={{ once: true }}
           className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5"
         >
-          The future
+          Unsere Zukunft
         </motion.p>
 
         <motion.h2
@@ -469,7 +534,7 @@ function App() {
           transition={{ duration: 1 }}
           className="text-3xl sm:text-4xl md:text-6xl font-bold mb-8"
         >
-          And everything still waiting for us
+          Und alles, was sonst noch so auf uns wartet
         </motion.h2>
 
         <motion.p
@@ -479,8 +544,9 @@ function App() {
           transition={{ duration: 1 }}
           className="text-white/60 text-lg leading-relaxed"
         >
-          Here you can write about dreams, future trips, little plans,
-          and everything you still want to experience together.
+          Ich hoffe wir haben noch so viele weitere Kapitel vor uns, so viele weitere Erinnerungen, 
+          die wir schaffen können, und so viel mehr Liebe, die wir teilen können. 
+          Ich freue mich auf alles, was noch kommt — mit dir an meiner Seite.
         </motion.p>
       </section>
 
@@ -490,7 +556,7 @@ function App() {
   </p>
 
   <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16">
-    Little chapters of us
+    Kleine Kapitel unserer Geschichte
   </h2>
 
   <div className="space-y-10 border-l border-white/10 pl-8">
@@ -521,7 +587,7 @@ function App() {
       viewport={{ once: true }}
       className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5"
     >
-      Final letter
+      Abschlussbrief
     </motion.p>
 
     <motion.h2
@@ -531,7 +597,7 @@ function App() {
       transition={{ duration: 1 }}
       className="text-3xl sm:text-4xl md:text-6xl font-bold mb-12"
     >
-      A letter for you
+      Ein Brief nur für dich
     </motion.h2>
 
     {!letterOpen ? (
@@ -550,11 +616,11 @@ function App() {
         </div>
 
         <p className="text-white/50 text-sm uppercase tracking-[0.35em] mb-4">
-          Tap to open
+          Drücke um zu öffnen
         </p>
 
         <h3 className="text-3xl font-bold">
-          Your letter is waiting
+          Dein Brief wartet auf dich
         </h3>
       </motion.button>
     ) : (
@@ -565,25 +631,25 @@ function App() {
         className="mx-auto max-w-3xl rounded-[1.5rem] md:rounded-[2rem] bg-white text-black p-8 md:p-14 text-left shadow-2xl"
       >
         <p className="text-black/40 uppercase tracking-[0.35em] text-sm mb-6">
-          To you,
+          An dich,
         </p>
 
         <h3 className="text-4xl md:text-5xl font-bold mb-8">
-          My favorite person
+          Mein Lieblingsmensch
         </h3>
 
         <p className="text-black/70 text-lg leading-relaxed">
-          This is where your final letter goes. Make it honest, simple,
-          and personal. Not too perfect — just real.
+          Mein Schatz, ich bin unfassbar glücklich dich an meiner Seite zu haben. Seit dem Tag, an dem wir uns kennengelernt haben, hast du mein Leben auf so viele Arten bereichert.
+          Du bringst so viel Freude, Liebe und Lachen in mein Leben, dass ich manchmal das Gefühl habe, ich könnte platzen vor Glück. 
+          Jeder Moment mit dir ist ein Geschenk, und ich schätze jede einzelne Erinnerung, die wir zusammen geschaffen haben.
         </p>
 
         <p className="mt-8 text-black/70 text-lg leading-relaxed">
-          Thank you for being you, for making ordinary days feel special,
-          and for being the person I am so lucky to love.
+          Danke, dass du du bist - so liebevoll, lustig, verständnisvoll und einfach wundervoll. Ich freue mich auf alles, was mich noch so mit dir erwartet.
         </p>
 
         <p className="mt-10 text-2xl font-semibold">
-          Happy Anniversary ❤️
+          Ich liebe dich, für immer und ewig. ❤️
         </p>
 
         <button
@@ -612,7 +678,7 @@ function App() {
       transition={{ duration: 1.4 }}
       className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tight mb-8"
     >
-      I’d choose you again.
+      Ich würde dich immer wieder wählen.
     </motion.h2>
 
     <motion.p
@@ -622,7 +688,7 @@ function App() {
       transition={{ delay: 1.2, duration: 1.6 }}
       className="text-white/50 text-xl md:text-2xl"
     >
-      Every single time.
+      Jedes Mal aufs Neue.
     </motion.p>
   </motion.div>
 
