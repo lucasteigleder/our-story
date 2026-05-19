@@ -32,11 +32,11 @@ const videos = [
 ]
 
 
-const particles = Array.from({ length: 35 }, (_, index) => ({
+const particles = Array.from({ length: 80 }, (_, index) => ({
   id: index,
   left: Math.random() * 100,
   top: Math.random() * 100,
-  size: Math.random() * 3 + 1,
+  size: Math.random() * 5 + 1,
   duration: Math.random() * 8 + 6,
 }))
 
@@ -141,7 +141,7 @@ function App() {
         {particles.map((particle) => (
           <motion.span
             key={particle.id}
-            className="absolute rounded-full bg-white/30"
+            className="absolute rounded-full bg-pink-300/50"
             style={{
               left: `${particle.left}%`,
               top: `${particle.top}%`,
@@ -150,7 +150,7 @@ function App() {
             }}
             animate={{
               opacity: [0.15, 0.7, 0.15],
-              y: [0, -20, 0],
+              y: [0, -60, 0],
             }}
             transition={{
               duration: particle.duration,
