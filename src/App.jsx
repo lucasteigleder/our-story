@@ -72,8 +72,8 @@ function getTimeTogether() {
   const years = Math.floor(totalDays / 365)
   const months = Math.floor((totalDays % 365) / 30)
   const days = totalDays % 30
-  const hours = totalHours % 24
-  const minutes = totalMinutes % 60
+  const hours = now.getHours()
+  const minutes = now.getMinutes()
 
   return { years, months, days, hours, minutes, totalDays }
 }
