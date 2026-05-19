@@ -630,41 +630,40 @@ function App() {
 </section>
 
       <div id="song" className="fixed bottom-6 right-6 z-50">
-  <AnimatePresence>
-    {musicOpen && (
-      <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.96 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 20, scale: 0.96 }}
-        transition={{ duration: 0.3 }}
-        className="mb-4 w-[calc(100vw-3rem)] max-w-[300px] md:max-w-[340px] rounded-3xl border border-white/10 bg-black/70 backdrop-blur-2xl p-4 shadow-2xl"
-      >
-        <p className="text-white/40 text-xs uppercase tracking-[0.3em] mb-3">
-          Our Song
-        </p>
+  <motion.div
+    animate={{
+      opacity: musicOpen ? 1 : 0,
+      y: musicOpen ? 0 : 30,
+      scale: musicOpen ? 1 : 0.96,
+      pointerEvents: musicOpen ? "auto" : "none",
+    }}
+    transition={{ duration: 0.3 }}
+    className="mb-4 w-[calc(100vw-3rem)] max-w-[340px] rounded-3xl border border-white/10 bg-black/80 backdrop-blur-2xl p-4 shadow-2xl"
+  >
+    <p className="text-white/40 text-xs uppercase tracking-[0.3em] mb-3">
+      Our Song
+    </p>
 
-        <iframe
-          style={{ borderRadius: "16px" }}
-          src="https://open.spotify.com/embed/track/003vvx7Niy0yvhvHt4a68B?utm_source=generator"
-          width="100%"
-          height="152"
-          frameBorder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        ></iframe>
-      </motion.div>
-    )}
-  </AnimatePresence>
+    <iframe
+      style={{ borderRadius: "16px" }}
+      src="https://open.spotify.com/embed/track/003vvx7Niy0yvhvHt4a68B?utm_source=generator"
+      width="100%"
+      height="152"
+      frameBorder="0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  </motion.div>
 
   <button
     type="button"
     aria-label="Toggle music player"
     onClick={() => setMusicOpen(!musicOpen)}
-    className="flex items-center gap-3 rounded-full border border-white/10 bg-white/10 backdrop-blur-xl px-5 py-4 hover:bg-white/20 transition shadow-xl"
+    className="ml-auto flex items-center gap-3 rounded-full border border-white/10 bg-white/10 backdrop-blur-xl px-5 py-4 hover:bg-white/20 transition shadow-xl"
   >
     <Music2 size={18} />
     <span className="text-sm uppercase tracking-widest">
-      {musicOpen ? "Close Music" : "Our Song"}
+      {musicOpen ? "Close Song" : "Our Song"}
     </span>
   </button>
 </div>
