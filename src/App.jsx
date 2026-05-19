@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu, X, Music2 } from "lucide-react"
-import { label } from "framer-motion/client"
+import { label, title } from "framer-motion/client"
 
 const memories = [
   {
@@ -18,6 +18,17 @@ const memories = [
     title: "The little things",
     text: "Write about small things she does that mean a lot to you.",
     image: `${import.meta.env.BASE_URL}/images/photo-3.jpg`,
+  },
+]
+
+const videos = [
+  {
+    title: "A little moment",
+    src: `${import.meta.env.BASE_URL}videos/memory-1.mp4`,
+  },
+  {
+    title: "Another memory",
+    src: `${import.meta.env.BASE_URL}videos/memory-2.mp4`,
   },
 ]
 
@@ -63,6 +74,7 @@ function App() {
     { label: "How it started", href: "#story" },
     { label: "Counter", href: "#counter"},
     { label: "Memories", href: "#memories" },
+    { label: "Videos", href: "#videos" },
     { label: "Future", href: "#future" },
     { label: "Timeline", href: "#timeline" },
     { label: "Final Letter", href: "#letter" },
@@ -247,6 +259,53 @@ function App() {
           ))}
         </div>
       </section>
+
+      <section id="videos" className="px-6 py-28 max-w-6xl mx-auto">
+  <motion.p
+    initial={{ opacity: 0, y: 18 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="text-white/40 uppercase tracking-[0.4em] text-sm mb-5"
+  >
+    Little moments
+  </motion.p>
+
+  <motion.h2
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+    className="text-4xl md:text-6xl font-bold mb-16"
+  >
+    The memories that move
+  </motion.h2>
+
+  <div className="grid md:grid-cols-2 gap-8">
+    {videos.map((video, index) => (
+      <motion.div
+        key={video.src}
+        initial={{ opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: index * 0.15 }}
+        className="rounded-3xl border border-white/10 bg-white/[0.04] p-3"
+      >
+        <video
+          src={video.src}
+          className="aspect-[4/5] w-full rounded-2xl object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+
+        <p className="px-2 pt-4 pb-2 text-white/50">
+          {video.title}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
       <section id="future" className="px-6 py-28 max-w-4xl mx-auto text-center">
         <motion.p
