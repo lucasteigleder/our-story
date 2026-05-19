@@ -31,6 +31,15 @@ const videos = [
   },
 ]
 
+
+const particles = Array.from({ length: 35 }, (_, index) => ({
+  id: index,
+  left: Math.random() * 100,
+  top: Math.random() * 100,
+  size: Math.random() * 3 + 1,
+  duration: Math.random() * 8 + 6,
+}))
+
 const timeline = [
   {
     date: "The beginning",
@@ -80,7 +89,6 @@ function App() {
     { label: "Videos", href: "#videos" },
     { label: "Future", href: "#future" },
     { label: "Timeline", href: "#timeline" },
-    { label: "Our Song", href: "#song" },
     { label: "Final Letter", href: "#letter" },
   ]
 
@@ -129,6 +137,29 @@ function App() {
     </motion.div>
   )}
 </AnimatePresence>
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        {particles.map((particle) => (
+          <motion.span
+            key={particle.id}
+            className="absolute rounded-full bg-white/30"
+            style={{
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              width: particle.size,
+              height: particle.size,
+            }}
+            animate={{
+              opacity: [0.15, 0.7, 0.15],
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
       <motion.div
         className="pointer-events-none fixed z-30 hidden h-80 w-80 rounded-full bg-pink-400/10 blur-3xl md:block"
         animate={{
