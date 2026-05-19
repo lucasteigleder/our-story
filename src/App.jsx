@@ -212,11 +212,11 @@ function App() {
           transition={{ duration: 1.8, repeat: Infinity }}
           className="text-white/40 uppercase tracking-[0.5em] text-sm mb-6"
         >
-          Loading memories
+          Lade Erinnerungen
         </motion.p>
 
         <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight">
-          For someone very special.
+            Für jemanden ganz besonderen... ❤️
         </h1>
       </motion.div>
     </motion.div>
@@ -707,7 +707,7 @@ function App() {
     className="mb-4 w-[calc(100vw-3rem)] max-w-[340px] rounded-3xl border border-white/10 bg-black/80 backdrop-blur-2xl p-4 shadow-2xl"
   >
     <p className="text-white/40 text-xs uppercase tracking-[0.3em] mb-3">
-      Our Song
+      Unser Song
     </p>
 
     <iframe
