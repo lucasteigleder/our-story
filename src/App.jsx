@@ -319,12 +319,18 @@ function App() {
             die Momente, die ich nie vergessen möchte, und alles, was noch auf uns wartet.
           </p>
 
-          <a
-            href="#story"
-            className="inline-block mt-12 rounded-full border border-white/20 px-8 py-4 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition"
-          >
-            Los geht’s
-          </a>
+          <button
+  type="button"
+  onClick={() => {
+    document.getElementById("story")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
+  }}
+  className="inline-block mt-12 rounded-full border border-white/20 px-8 py-4 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition"
+>
+  Los geht's
+</button>
         </motion.div>
       </section>
 
@@ -677,7 +683,7 @@ die noch auf uns warten.
           onClick={() => setLetterOpen(false)}
           className="mt-10 rounded-full border border-black/10 px-6 py-3 text-sm uppercase tracking-widest text-black/60 hover:bg-black hover:text-white transition"
         >
-          Close letter
+          Schließe den Brief
         </button>
       </motion.div>
     )}
