@@ -729,7 +729,7 @@ function App() {
   >
     <Music2 size={18} />
     <span className="text-sm uppercase tracking-widest">
-      {musicOpen ? "Close Song" : "Our Song"}
+      {musicOpen ? "Schließe Song" : "Unser Song"}
     </span>
   </button>
 </div>
