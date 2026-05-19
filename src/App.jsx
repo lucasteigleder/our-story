@@ -297,6 +297,18 @@ function App() {
           muted
           loop
           playsInline
+          controls
+          onClick={(e) => {
+            const video = e.currentTarget
+
+            if (video.muted) {
+              video.muted = false
+              video.volume = 1
+              video.play()
+            } else {
+              video.muted = true
+            }
+          }}
         />
 
         <p className="px-2 pt-4 pb-2 text-white/50">
