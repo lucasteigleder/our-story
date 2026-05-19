@@ -60,17 +60,29 @@ const timeline = [
 
 const relationshipStartDate = new Date("2024-07-20")
 
-function getDaysTogether() {
-  const today = new Date()
-  const difference = today - relationshipStartDate
-  return Math.floor(difference / (1000 * 60 * 60 * 24))
+function getTimeTogether() {
+  const now = new Date()
+  const difference = now - relationshipStartDate
+
+  const totalSeconds = Math.floor(difference / 1000)
+  const totalMinutes = Math.floor(totalSeconds / 60)
+  const totalHours = Math.floor(totalMinutes / 60)
+  const totalDays = Math.floor(totalHours / 24)
+
+  const years = Math.floor(totalDays / 365)
+  const months = Math.floor((totalDays % 365) / 30)
+  const days = totalDays % 30
+  const hours = totalHours % 24
+  const minutes = totalMinutes % 60
+
+  return { years, months, days, hours, minutes, totalDays }
 }
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [musicOpen, setMusicOpen] = useState(false)
   const [letterOpen, setLetterOpen] = useState(false)
-  const daysTogether = getDaysTogether()
+  const [timeTogether, setTimeTogether] = useState(getTimeTogether())
   const { scrollY } = useScroll()
 
   const heroGlowY = useTransform(scrollY, [0, 700], [0, 180])
@@ -80,6 +92,14 @@ function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeTogether(getTimeTogether())
+    }, 60000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   const navItems = [
     { label: "Start", href: "#top" },
@@ -286,24 +306,45 @@ function App() {
         </div>
       </section>
 
-<section id="counter" className="px-6 py-24 max-w-5xl mx-auto text-center">
+<section id="counter" className="px-6 py-24 max-w-6xl mx-auto text-center relative z-10">
   <motion.div
     initial={{ opacity: 0, y: 24 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 1 }}
-    className="rounded-[2rem] border border-white/10 bg-white/[0.05] backdrop-blur-xl p-10 md:p-16"
+    className="rounded-[2rem] border border-white/10 bg-white/[0.05] backdrop-blur-xl p-8 md:p-14"
   >
     <p className="text-white/40 uppercase tracking-[0.4em] text-sm mb-6">
       Since us
     </p>
 
-    <h2 className="text-6xl md:text-8xl font-black tracking-tight mb-6">
-      {daysTogether}
-    </h2>
+    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+      {[
+        { label: "years", value: timeTogether.years },
+        { label: "months", value: timeTogether.months },
+        { label: "days", value: timeTogether.days },
+        { label: "hours", value: timeTogether.hours },
+        { label: "minutes", value: timeTogether.minutes },
+      ].map((item) => (
+        <motion.div
+          key={item.label}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="rounded-3xl border border-white/10 bg-black/20 p-5"
+        >
+          <p className="text-4xl md:text-5xl font-black tracking-tight">
+            {item.value}
+          </p>
+          <p className="mt-2 text-xs uppercase tracking-[0.25em] text-white/40">
+            {item.label}
+          </p>
+        </motion.div>
+      ))}
+    </div>
 
-    <p className="text-white/60 text-xl">
-      days together
+    <p className="text-white/60 text-lg">
+      {timeTogether.totalDays} days together — and still counting.
     </p>
   </motion.div>
 </section>
