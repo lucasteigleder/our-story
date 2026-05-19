@@ -150,7 +150,7 @@ function App() {
           Loading memories
         </motion.p>
 
-        <h1 className="text-4xl md:text-6xl font-black tracking-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tight">
           For someone very special.
         </h1>
       </motion.div>
@@ -206,7 +206,7 @@ function App() {
           <motion.div
             initial={{ opacity: 0, y: -10, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="absolute right-0 mt-4 w-56 rounded-3xl border border-white/10 bg-black/70 backdrop-blur-2xl p-3 shadow-2xl"
+            className="absolute right-0 mt-4 w-52 md:w-56 rounded-3xl border border-white/10 bg-black/70 backdrop-blur-2xl p-3 shadow-2xl"
           >
             {navItems.map((item) => (
               <a
@@ -245,7 +245,7 @@ function App() {
             20.07.
           </p>
 
-          <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-8">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tight mb-8">
             Our Story
           </h1>
 
@@ -269,12 +269,12 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold mb-16"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16"
         >
           How it started
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -312,13 +312,13 @@ function App() {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 1 }}
-    className="rounded-[2rem] border border-white/10 bg-white/[0.05] backdrop-blur-xl p-8 md:p-14"
+    className="rounded-[1.5rem] md:rounded-[2rem] border border-white/10 bg-white/[0.05] backdrop-blur-xl p-8 md:p-14"
   >
     <p className="text-white/40 uppercase tracking-[0.4em] text-sm mb-6">
       Since us
     </p>
 
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+    <div className="grid grid-cols-2 md:grid-cols-3 md:grid-cols-5 gap-4 mb-8">
       {[
         { label: "years", value: timeTogether.years },
         { label: "months", value: timeTogether.months },
@@ -364,7 +364,7 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold mb-16"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16"
         >
           Moments I never want to forget
         </motion.h2>
@@ -408,12 +408,12 @@ function App() {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 1 }}
-    className="text-4xl md:text-6xl font-bold mb-16"
+    className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16"
   >
     The memories that move
   </motion.h2>
 
-  <div className="grid md:grid-cols-2 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     {videos.map((video, index) => (
       <motion.div
         key={video.src}
@@ -467,7 +467,7 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold mb-8"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-8"
         >
           And everything still waiting for us
         </motion.h2>
@@ -489,7 +489,7 @@ function App() {
     Timeline
   </p>
 
-  <h2 className="text-4xl md:text-6xl font-bold mb-16">
+  <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-16">
     Little chapters of us
   </h2>
 
@@ -529,7 +529,7 @@ function App() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1 }}
-      className="text-4xl md:text-6xl font-bold mb-12"
+      className="text-3xl sm:text-4xl md:text-6xl font-bold mb-12"
     >
       A letter for you
     </motion.h2>
@@ -543,7 +543,7 @@ function App() {
         whileTap={{ scale: 0.98 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative mx-auto block w-full max-w-xl rounded-[2rem] border border-white/10 bg-white/[0.06] p-10 backdrop-blur-xl"
+        className="relative mx-auto block w-full max-w-xl rounded-[1.5rem] md:rounded-[2rem] border border-white/10 bg-white/[0.06] p-10 backdrop-blur-xl"
       >
         <div className="mx-auto mb-8 flex h-28 w-40 items-center justify-center rounded-2xl bg-white text-black shadow-2xl">
           <span className="text-5xl">💌</span>
@@ -562,7 +562,7 @@ function App() {
         initial={{ opacity: 0, y: 50, rotateX: -12 }}
         animate={{ opacity: 1, y: 0, rotateX: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="mx-auto max-w-3xl rounded-[2rem] bg-white text-black p-8 md:p-14 text-left shadow-2xl"
+        className="mx-auto max-w-3xl rounded-[1.5rem] md:rounded-[2rem] bg-white text-black p-8 md:p-14 text-left shadow-2xl"
       >
         <p className="text-black/40 uppercase tracking-[0.35em] text-sm mb-6">
           To you,
@@ -610,7 +610,7 @@ function App() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1.4 }}
-      className="text-5xl md:text-8xl font-black tracking-tight mb-8"
+      className="text-4xl sm:text-5xl md:text-8xl font-black tracking-tight mb-8"
     >
       I’d choose you again.
     </motion.h2>
@@ -637,7 +637,7 @@ function App() {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.96 }}
         transition={{ duration: 0.3 }}
-        className="mb-4 w-[calc(100vw-3rem)] max-w-[340px] rounded-3xl border border-white/10 bg-black/70 backdrop-blur-2xl p-4 shadow-2xl"
+        className="mb-4 w-[calc(100vw-3rem)] max-w-[300px] md:max-w-[340px] rounded-3xl border border-white/10 bg-black/70 backdrop-blur-2xl p-4 shadow-2xl"
       >
         <p className="text-white/40 text-xs uppercase tracking-[0.3em] mb-3">
           Our Song
