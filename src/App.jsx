@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Menu, X, Music2 } from "lucide-react"
 
@@ -70,6 +70,8 @@ function App() {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
+  const [loading, setLoading] = useState(true)
+
   const navItems = [
     { label: "Start", href: "#top" },
     { label: "How it started", href: "#story" },
@@ -81,13 +83,52 @@ function App() {
     { label: "Our Song", href: "#song" },
     { label: "Final Letter", href: "#letter" },
   ]
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 5000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <main
+    
       onMouseMove={(e) => {
         setMousePosition({ x: e.clientX, y: e.clientY })
       }}
       className="min-h-screen bg-[#050505] text-white overflow-hidden"
     >
+      <AnimatePresence>
+  {loading && (
+    <motion.div
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+      className="fixed inset-0 z-[999] flex items-center justify-center bg-[#050505]"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-center px-6"
+      >
+        <motion.p
+          animate={{ opacity: [0.35, 1, 0.35] }}
+          transition={{ duration: 1.8, repeat: Infinity }}
+          className="text-white/40 uppercase tracking-[0.5em] text-sm mb-6"
+        >
+          Loading memories
+        </motion.p>
+
+        <h1 className="text-4xl md:text-6xl font-black tracking-tight">
+          For someone very special.
+        </h1>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
       <motion.div
         className="pointer-events-none fixed z-30 hidden h-80 w-80 rounded-full bg-pink-400/10 blur-3xl md:block"
         animate={{
