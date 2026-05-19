@@ -596,6 +596,39 @@ function App() {
     )}
   </div>
 </section>
+
+<section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 2 }}
+    className="text-center relative z-10"
+  >
+    <motion.h2
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.4 }}
+      className="text-5xl md:text-8xl font-black tracking-tight mb-8"
+    >
+      I’d choose you again.
+    </motion.h2>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: 1.2, duration: 1.6 }}
+      className="text-white/50 text-xl md:text-2xl"
+    >
+      Every single time.
+    </motion.p>
+  </motion.div>
+
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,120,180,0.12),transparent_55%)]" />
+</section>
+
       <div id="song" className="fixed bottom-6 right-6 z-50">
   <AnimatePresence>
     {musicOpen && (
