@@ -123,41 +123,96 @@ const timeline = [
   },
 ]
 
-const relationshipStartDate = new Date("2024-07-20")
+const relationshipStartDate = new Date(2024, 6, 20, 0, 0, 0)
 
 const secretWord = "jana"
 const crosswordUrl = "https://crosswordlabs.com/view/jahrestag-quiz"
 
-function getTimeTogether() {
-  const now = new Date()
-  const start = new Date("2024-07-20T00:00:00")
+function getTimeTogether(now = new Date()) {
+  const start = relationshipStartDate
+
+  if (now < start) {
+    return {
+      years: 0,
+      months: 0,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      totalDays: 0,
+    }
+  }
 
   let years = now.getFullYear() - start.getFullYear()
-  let months = now.getMonth() - start.getMonth()
-  let days = now.getDate() - start.getDate()
 
-  if (days < 0) {
-    months--
+  let anchor = new Date(
+    start.getFullYear() + years,
+    start.getMonth(),
+    start.getDate(),
+    start.getHours(),
+    start.getMinutes(),
+    start.getSeconds()
+  )
 
-    const previousMonth = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      0
+  if (anchor > now) {
+    years -= 1
+
+    anchor = new Date(
+      start.getFullYear() + years,
+      start.getMonth(),
+      start.getDate(),
+      start.getHours(),
+      start.getMinutes(),
+      start.getSeconds()
     )
-
-    days += previousMonth.getDate()
   }
 
-  if (months < 0) {
-    years--
-    months += 12
+  let months = 0
+
+  while (months < 11) {
+    const nextAnchor = new Date(anchor)
+    nextAnchor.setMonth(nextAnchor.getMonth() + 1)
+
+    if (nextAnchor > now) {
+      break
+    }
+
+    anchor = nextAnchor
+    months += 1
   }
 
-  const difference = now.getTime() - start.getTime()
-  const totalDays = Math.floor(difference / (1000 * 60 * 60 * 24))
+  let remainingMilliseconds = now.getTime() - anchor.getTime()
 
-  const hours = now.getHours()
-  const minutes = now.getMinutes()
+  const days = Math.floor(
+    remainingMilliseconds / (1000 * 60 * 60 * 24)
+  )
+
+  remainingMilliseconds -= days * 1000 * 60 * 60 * 24
+
+  const hours = Math.floor(
+    remainingMilliseconds / (1000 * 60 * 60)
+  )
+
+  remainingMilliseconds -= hours * 1000 * 60 * 60
+
+  const minutes = Math.floor(
+    remainingMilliseconds / (1000 * 60)
+  )
+
+  const startUtc = Date.UTC(
+    start.getFullYear(),
+    start.getMonth(),
+    start.getDate()
+  )
+
+  const nowUtc = Date.UTC(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate()
+  )
+
+  const totalDays = Math.floor(
+    (nowUtc - startUtc) / (1000 * 60 * 60 * 24)
+  )
 
   return {
     years,
@@ -173,7 +228,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [musicOpen, setMusicOpen] = useState(false)
   const [letterOpen, setLetterOpen] = useState(false)
-  const [timeTogether, setTimeTogether] = useState(getTimeTogether())
+  const [timeTogether, setTimeTogether] = useState(() => getTimeTogether())
   const { scrollY } = useScroll()
 
   const heroGlowY = useTransform(scrollY, [0, 700], [0, 180])
