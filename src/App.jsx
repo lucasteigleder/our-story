@@ -130,20 +130,43 @@ const crosswordUrl = "https://crosswordlabs.com/view/jahrestag-quiz"
 
 function getTimeTogether() {
   const now = new Date()
-  const difference = now - relationshipStartDate
+  const start = new Date("2024-07-20T00:00:00")
 
-  const totalSeconds = Math.floor(difference / 1000)
-  const totalMinutes = Math.floor(totalSeconds / 60)
-  const totalHours = Math.floor(totalMinutes / 60)
-  const totalDays = Math.floor(totalHours / 24)
+  let years = now.getFullYear() - start.getFullYear()
+  let months = now.getMonth() - start.getMonth()
+  let days = now.getDate() - start.getDate()
 
-  const years = Math.floor(totalDays / 365)
-  const months = Math.floor((totalDays % 365) / 30)
-  const days = totalDays % 30
+  if (days < 0) {
+    months--
+
+    const previousMonth = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      0
+    )
+
+    days += previousMonth.getDate()
+  }
+
+  if (months < 0) {
+    years--
+    months += 12
+  }
+
+  const difference = now.getTime() - start.getTime()
+  const totalDays = Math.floor(difference / (1000 * 60 * 60 * 24))
+
   const hours = now.getHours()
   const minutes = now.getMinutes()
 
-  return { years, months, days, hours, minutes, totalDays }
+  return {
+    years,
+    months,
+    days,
+    hours,
+    minutes,
+    totalDays,
+  }
 }
 
 function App() {
